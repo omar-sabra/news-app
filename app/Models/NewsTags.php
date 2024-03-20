@@ -15,10 +15,10 @@ class NewsTags extends Model
     ];
 
     public function tags() {
-        return $this->belongsToMany(Tag::class, 'news_tags', 'tag_id', 'news_id');
+        return $this->belongsTo(Tag::class,  'tag_id', 'id');
     }
 
     public function news() {
-        return $this->belongsToMany(News::class, 'news_tags', 'news_id', 'tag_id');
+        return $this->belongsTo(News::class,  'news_id', 'id');
     }
 }
